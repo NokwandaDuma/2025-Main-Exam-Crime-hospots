@@ -2,6 +2,7 @@ streamlit>=1.50
 pandas
 numpy
 scikit-learn
+statsmodels
 plotly
 joblib
 matplotlib
