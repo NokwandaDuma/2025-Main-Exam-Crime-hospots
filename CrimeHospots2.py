@@ -51,16 +51,16 @@ df = load_data()
 # =========================================================
 @st.cache_resource
 def load_models():
-    rf = joblib.load("models/hotspot_classifier.pkl")
-    arima = ARIMAResults.load("models/arima_forecast_model.pkl")
-    meta = joblib.load("models/model_metadata.pkl")
+    rf = joblib.load("hotspot_classifier.pkl")
+    arima = ARIMAResults.load("arima_forecast_model.pkl")
+    meta = joblib.load("model_metadata.pkl")
     return rf, arima, meta
 
 try:
     rf, arima_model, meta = load_models()
     selected_category = meta.get("selected_category", "Murder")
 except Exception as e:
-    st.error(f"Could not load models. Make sure the 'models/' folder is uploaded. Error: {e}")
+    st.error(f"Could not load models. Make sure the .pkl files are in the root of the repository. Error: {e}")
     st.stop()
 
 # =========================================================
